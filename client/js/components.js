@@ -4,8 +4,10 @@ import { h, initials } from './ui.js';
 export const ROLE_LABEL = Object.fromEntries(ROLES.map((r) => [r.id, r.label]));
 const PARTY_BY_ID = Object.fromEntries(PARTIES.map((p) => [p.id, p]));
 
-function statusPill(player) {
+function statusPill(player, room) {
   if (!player.connected) return h('span', { class: 'pill pill-off' }, 'Disconnesso');
+  // A partita iniziata "pronto" non ha più senso: conta solo se si è collegati.
+  if (room.phase !== 'lobby') return h('span', { class: 'pill pill-ok' }, 'In linea');
   return player.ready
     ? h('span', { class: 'pill pill-ok' }, 'Pronto')
     : h('span', { class: 'pill pill-wait' }, 'In attesa');
@@ -26,5 +28,5 @@ export function playerRow(player, room) {
         player.id === room.hostId ? h('span', { class: 'tag' }, 'Host') : null,
         player.id === room.you ? h('span', { class: 'tag tag-you' }, 'Tu') : null),
       h('p', { class: 'm-0 text-sm muted truncate' }, details)),
-    statusPill(player));
+    statusPill(player, room));
 }

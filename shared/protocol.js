@@ -66,3 +66,16 @@ export const PARTIES = Object.freeze([
   { id: 'verdi_futuro', label: 'Verdi per il Futuro', color: '#3f8f5a' },
   { id: 'centro_liberale', label: 'Centro Liberale', color: '#c9962f' },
 ]);
+
+// Indicatori di stato del Paese, tutti su scala 0-100 (come nelle barre del riferimento UI).
+// "europe" è una pressione: più è alta, peggio è.
+export const KPI_MIN = 0;
+export const KPI_MAX = 100;
+export const KPIS = Object.freeze([
+  { id: 'approval', label: 'Gradimento pubblico' },
+  { id: 'budget', label: 'Budget nazionale' },
+  { id: 'europe', label: 'Pressione europea' },
+]);
+
+// Un obiettivo confronta un indicatore con una soglia: "gte" = almeno, "lte" = al massimo.
+export const OBJECTIVE_OPS = Object.freeze({ gte: '≥', lte: '≤' });

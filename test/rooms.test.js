@@ -3,17 +3,7 @@ import { afterEach, describe, it } from 'node:test';
 import { MAX_PLAYERS } from '../shared/protocol.js';
 import { normalizeCode } from '../server/codes.js';
 import { cleanName, GameError, RoomRegistry } from '../server/rooms.js';
-
-function fakeConn() {
-  return {
-    player: null,
-    sent: [],
-    closed: false,
-    send(msg) { this.sent.push(msg); },
-    close() { this.closed = true; },
-    last(type) { return this.sent.findLast((m) => m.t === type); },
-  };
-}
+import { fakeConn } from './helpers.js';
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

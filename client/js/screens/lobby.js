@@ -17,7 +17,7 @@ export function createLobby({ net }) {
 
   const codeEl = h('p', { class: 'code-badge' });
   const countEl = h('span', { class: 'muted text-sm' });
-  const list = h('ul', { class: 'grid gap-3 m-0 p-0 list-none' });
+  const list = h('ul', { class: 'grid grid-cols-1 gap-3 m-0 p-0 list-none' });
 
   const roleSelect = h('select', {
     id: 'role',
@@ -47,7 +47,7 @@ export function createLobby({ net }) {
         h('h1', { class: 'title-serif logo !text-left !text-4xl' }, "Sala d'attesa")),
       h('button', { class: 'btn btn-ghost btn-sm', type: 'button', onclick: () => send(C2S.LEAVE) }, 'Esci')),
     h('div', { class: 'w-full max-w-5xl grid gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-start' },
-      h('div', { class: 'grid gap-5' },
+      h('div', { class: 'grid grid-cols-1 gap-5' },
         h('div', { class: 'frame grid gap-3' },
           h('span', { class: 'label !mb-0' }, 'Codice invito'),
           codeEl,
@@ -69,7 +69,7 @@ export function createLobby({ net }) {
             partySelect),
           readyBtn,
           readyHint)),
-      h('div', { class: 'grid gap-5' },
+      h('div', { class: 'grid grid-cols-1 gap-5' },
         h('div', { class: 'frame' },
           h('div', { class: 'flex items-baseline justify-between mb-3' },
             h('h2', { class: 'title-serif frame-title !mb-0' }, 'Giocatori'),

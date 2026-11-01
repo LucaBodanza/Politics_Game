@@ -1,8 +1,9 @@
-import { randomUUID } from 'node:crypto';
+import { randomInt, randomUUID } from 'node:crypto';
 import {
   ERR, MAX_PLAYERS, MIN_PLAYERS, NAME_MAX, PARTIES, PHASES, ROLES, S2C,
 } from '../shared/protocol.js';
 import { generateCode, normalizeCode } from './codes.js';
+import { generateGame, publicGame } from './game/state.js';
 
 const ROLE_IDS = new Set(ROLES.map((r) => r.id));
 const PARTY_IDS = new Set(PARTIES.map((p) => p.id));
@@ -35,10 +36,16 @@ export class RoomRegistry {
   #rooms = new Map(); // codice -> stanza
   #sessions = new Map(); // token -> giocatore
 
-  constructor({ graceMs = 60_000, idleMs = 600_000, maxRooms = 200 } = {}) {
+  constructor({
+    graceMs = 60_000,
+    idleMs = 600_000,
+    maxRooms = 200,
+    newGame = () => generateGame({ seed: randomInt(2 ** 32) }),
+  } = {}) {
     this.graceMs = graceMs;
     this.idleMs = idleMs;
     this.maxRooms = maxRooms;
+    this.newGame = newGame; // iniettabile nei test per avere partite prevedibili
   }
 
   get roomCount() {
@@ -56,6 +63,7 @@ export class RoomRegistry {
       phase: PHASES.LOBBY,
       hostId: null,
       players: new Map(),
+      game: null,
       idleTimer: null,
     };
     this.#rooms.set(room.code, room);
@@ -158,6 +166,7 @@ export class RoomRegistry {
       throw new GameError(ERR.NOT_ALL_READY, 'Non tutti i giocatori sono pronti.');
     }
     room.phase = PHASES.PLAYING;
+    room.game = this.newGame();
     this.#broadcast(room);
   }
 
@@ -247,6 +256,7 @@ export class RoomRegistry {
       you: viewer.id,
       minPlayers: MIN_PLAYERS,
       maxPlayers: MAX_PLAYERS,
+      game: room.game ? publicGame(room.game) : null,
       players: [...room.players.values()].map((p) => ({
         id: p.id,
         name: p.name,

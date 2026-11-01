@@ -1,0 +1,146 @@
+[
+  {
+    "id": "caro-bollette",
+    "kicker": "Emergenza energia",
+    "title": "Il caro bollette mette in ginocchio famiglie e imprese",
+    "briefing": "Il prezzo del gas è raddoppiato in tre mesi. Le bollette di famiglie e piccole imprese sono fuori controllo, le fabbriche rallentano e nelle piazze crescono le proteste. Servono misure rapide, ma le casse dello Stato non sono illimitate.",
+    "tags": ["energia", "fiscale", "imprese"],
+    "kpiStart": { "approval": 38, "budget": 54, "europe": 42 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 50 },
+      { "kpi": "budget", "op": "gte", "value": 40 }
+    ],
+    "headlines": [
+      "TG Capitale: bollette alle stelle, famiglie in difficoltà e fabbriche a rischio chiusura",
+      "Radio Piazza: sit-in davanti al Ministero, i consumatori chiedono un tetto ai prezzi",
+      "La Gazzetta Nazionale: il governo cerca fondi per un nuovo decreto energia",
+      "Borsa: volano i titoli energetici, preoccupano i conti pubblici"
+    ]
+  },
+  {
+    "id": "inflazione",
+    "kicker": "Emergenza economica",
+    "title": "L'inflazione corre al 9%: il carrello della spesa non si regge",
+    "briefing": "I prezzi dei beni di prima necessità salgono ogni settimana e gli stipendi restano fermi. I sindacati minacciano lo sciopero generale, mentre Bruxelles chiede di non allargare il disavanzo.",
+    "tags": ["prezzi", "salari", "fiscale"],
+    "kpiStart": { "approval": 35, "budget": 48, "europe": 58 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 48 },
+      { "kpi": "europe", "op": "lte", "value": 50 }
+    ],
+    "headlines": [
+      "TG Capitale: il costo della vita record, un italiano su tre salta i pasti fuori casa",
+      "La Gazzetta Nazionale: i sindacati preparano lo sciopero generale",
+      "Radio Piazza: al mercato i prezzi cambiano da un giorno all'altro",
+      "Borsa: gli analisti avvertono, senza una manovra credibile lo spread sale"
+    ]
+  },
+  {
+    "id": "lavoro",
+    "kicker": "Riforma del lavoro",
+    "title": "Precarietà e salari bassi: i giovani lasciano il Paese",
+    "briefing": "Contratti a termine, stage non pagati e stipendi fermi da vent'anni spingono i più giovani a emigrare. Le imprese lamentano di non trovare personale, i lavoratori di non arrivare a fine mese: serve una riforma che tenga insieme le due richieste.",
+    "tags": ["lavoro", "giovani", "imprese"],
+    "kpiStart": { "approval": 41, "budget": 50, "europe": 47 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 52 },
+      { "kpi": "europe", "op": "lte", "value": 55 }
+    ],
+    "headlines": [
+      "TG Capitale: record di partenze all'estero tra i laureati sotto i trent'anni",
+      "La Gazzetta Nazionale: le imprese non trovano personale, i sindacati chiedono contratti stabili",
+      "Radio Piazza: i giovani in piazza con lo slogan «Non siamo un costo»",
+      "Borsa: il mercato del lavoro frena la crescita, rivista al ribasso la stima sul PIL"
+    ]
+  },
+  {
+    "id": "infrastrutture",
+    "kicker": "Emergenza infrastrutture",
+    "title": "Crolla un viadotto sull'autostrada principale",
+    "briefing": "Un viadotto cede nella notte e interrompe il collegamento tra Nord e Sud. Ci sono feriti e il traffico merci è bloccato. L'opinione pubblica chiede responsabilità e un piano straordinario di controlli sulle opere pubbliche.",
+    "tags": ["infrastrutture", "sicurezza", "appalti"],
+    "kpiStart": { "approval": 33, "budget": 46, "europe": 36 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 45 },
+      { "kpi": "budget", "op": "gte", "value": 30 }
+    ],
+    "headlines": [
+      "TG Capitale: il viadotto è crollato, soccorsi al lavoro tutta la notte",
+      "Radio Piazza: camion fermi per chilometri, ritardi sulle consegne in tutto il Paese",
+      "La Gazzetta Nazionale: sotto accusa i controlli sulle opere pubbliche",
+      "Borsa: i titoli delle società di costruzione crollano in apertura"
+    ]
+  },
+  {
+    "id": "trasporti",
+    "kicker": "Emergenza trasporti",
+    "title": "Sciopero a oltranza: treni fermi e aeroporti nel caos",
+    "briefing": "Ferrovieri e personale di terra incrociano le braccia per il rinnovo dei contratti. I pendolari restano a piedi, il turismo disdice le prenotazioni e le città si bloccano. Serve una soluzione prima che lo sciopero si allarghi.",
+    "tags": ["trasporti", "lavoro", "turismo"],
+    "kpiStart": { "approval": 40, "budget": 52, "europe": 33 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 50 },
+      { "kpi": "budget", "op": "gte", "value": 40 }
+    ],
+    "headlines": [
+      "TG Capitale: stazioni deserte, migliaia di pendolari bloccati da giorni",
+      "Radio Piazza: voli cancellati, gli albergatori contano i danni",
+      "La Gazzetta Nazionale: trattativa in stallo, il governo convoca le parti",
+      "Borsa: la compagnia di bandiera perde terreno, pesa il blocco dei voli"
+    ]
+  },
+  {
+    "id": "sanita",
+    "kicker": "Emergenza sanità",
+    "title": "Liste d'attesa infinite e pronto soccorso al collasso",
+    "briefing": "Per una visita specialistica servono mesi e i pronto soccorso scoppiano. Mancano medici e infermieri, chi può si cura in privato e chi non può rinuncia. L'opinione pubblica vuole risposte concrete, ma ogni assunzione pesa sul bilancio.",
+    "tags": ["sanità", "personale", "fiscale"],
+    "kpiStart": { "approval": 36, "budget": 44, "europe": 38 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 50 },
+      { "kpi": "budget", "op": "gte", "value": 30 }
+    ],
+    "headlines": [
+      "TG Capitale: ambulanze in coda fuori dai pronto soccorso, pazienti sulle barelle nei corridoi",
+      "La Gazzetta Nazionale: mancano ventimila infermieri, gli ospedali chiedono aiuto",
+      "Radio Piazza: sempre più italiani rinunciano alle cure per i costi",
+      "Borsa: cresce il settore delle assicurazioni sanitarie private"
+    ]
+  },
+  {
+    "id": "siccita",
+    "kicker": "Emergenza clima",
+    "title": "Siccità record: i campi restano senza acqua",
+    "briefing": "Non piove da mesi, i fiumi sono in secca e gli agricoltori perdono i raccolti. I comuni razionano l'acqua mentre la rete idrica disperde quasi metà di quella che trasporta. L'Europa chiede investimenti e impegni climatici più severi.",
+    "tags": ["clima", "agricoltura", "infrastrutture"],
+    "kpiStart": { "approval": 42, "budget": 50, "europe": 52 },
+    "objectives": [
+      { "kpi": "approval", "op": "gte", "value": 50 },
+      { "kpi": "europe", "op": "lte", "value": 45 }
+    ],
+    "headlines": [
+      "TG Capitale: i fiumi ai minimi storici, razionamento dell'acqua in decine di comuni",
+      "Radio Piazza: gli agricoltori in protesta con i trattori davanti alla Regione",
+      "La Gazzetta Nazionale: la rete idrica perde il 40% dell'acqua, pronto un piano di rinnovo",
+      "Borsa: salgono i prezzi dei prodotti agricoli, l'inflazione alimentare accelera"
+    ]
+  },
+  {
+    "id": "pensioni",
+    "kicker": "Riforma delle pensioni",
+    "title": "Il sistema previdenziale rischia di non reggere",
+    "briefing": "Ci sono sempre meno lavoratori per ogni pensionato e la spesa previdenziale cresce più in fretta delle entrate. Bruxelles chiede una riforma, ma ogni ritocco scontenta qualcuno: chi è vicino alla pensione, chi è giovane e paga i contributi.",
+    "tags": ["pensioni", "fiscale", "giovani"],
+    "kpiStart": { "approval": 44, "budget": 40, "europe": 62 },
+    "objectives": [
+      { "kpi": "budget", "op": "gte", "value": 45 },
+      { "kpi": "europe", "op": "lte", "value": 50 }
+    ],
+    "headlines": [
+      "TG Capitale: la spesa per le pensioni supera ogni previsione, allarme dei tecnici",
+      "La Gazzetta Nazionale: i giovani chiedono equità, i pensionati difendono i diritti acquisiti",
+      "Radio Piazza: manifestazione dei sindacati contro l'aumento dell'età pensionabile",
+      "Borsa: gli investitori guardano il debito, cresce la tensione sui titoli di Stato"
+    ]
+  }
+]

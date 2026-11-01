@@ -96,7 +96,10 @@ describe('multiplayer via WebSocket', () => {
       await a.next((m) => m.t === 'room' && m.players.every((p) => p.ready));
 
       a.send('start');
-      assert.equal((await b.next((m) => m.t === 'room' && m.phase === 'playing')).phase, 'playing');
+      const started = await b.next((m) => m.t === 'room' && m.phase === 'playing');
+      assert.equal(typeof started.game.crisis.title, 'string');
+      assert.deepEqual(Object.keys(started.game.kpis).sort(), ['approval', 'budget', 'europe']);
+      assert.ok(started.game.ticker.length >= 3);
     } finally {
       a.close();
       b.close();

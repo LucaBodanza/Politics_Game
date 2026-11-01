@@ -165,11 +165,65 @@ dialog.dlg::backdrop { background: rgb(5 12 26 / 0.72); backdrop-filter: blur(3p
 
 .banner { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 0.55rem 1rem; text-align: center; font-size: 0.85rem; font-weight: 600; background: var(--bad); color: #fff; }
 
-#toasts { position: fixed; left: 0; right: 0; bottom: 18px; z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 16px; pointer-events: none; }
+#toasts { position: fixed; left: 0; right: 0; bottom: 72px; z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 16px; pointer-events: none; }
 .toast { max-width: 440px; padding: 0.7rem 1rem; font-size: 0.9rem; font-weight: 500; color: var(--cream); background: var(--navy-800); border: 1px solid var(--gold); border-radius: 8px; box-shadow: 0 10px 28px rgb(0 0 0 / 0.5); animation: toast-in 0.18s ease-out; }
 .toast-error { background: #5a1f1a; border-color: var(--bad); }
 @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }
 
+/* Cruscotto di gioco */
+.screen-top { justify-content: flex-start; }
+.game { padding-bottom: 84px; }
+
+.hud {
+  width: 100%;
+  max-width: 72rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px 28px;
+  padding: 14px 20px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgb(0 0 0 / 0.4);
+}
+.meter { display: flex; align-items: center; gap: 12px; --m: var(--navy-600); }
+.meter-approval { --m: #2f8a55; }
+.meter-budget { --m: #a8741a; }
+.meter-europe { --m: #2f5fa8; }
+.meter-icon { flex: none; width: 44px; height: 44px; display: grid; place-items: center; color: #fff; background: var(--m); border-radius: 10px; }
+.meter-body { flex: 1; min-width: 0; }
+.meter-head { display: flex; justify-content: space-between; gap: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.meter-value { font-variant-numeric: tabular-nums; }
+.meter-track { height: 10px; margin-top: 6px; overflow: hidden; background: #ddd4bd; border-radius: 999px; }
+.meter-fill { width: 0; height: 100%; background: var(--m); border-radius: inherit; transition: width 0.6s ease; }
+
+.game-grid { width: 100%; max-width: 72rem; display: grid; gap: 20px; align-items: start; }
+@media (min-width: 1024px) { .game-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+
+.crisis-title { margin: 0.25rem 0 0.8rem; font-size: clamp(1.7rem, 4.5vw, 2.5rem); line-height: 1.12; letter-spacing: 0.02em; text-transform: none; color: var(--gold-soft); }
+.crisis-briefing { margin: 0 0 1.4rem; line-height: 1.65; }
+
+.objectives { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.objective { display: flex; align-items: center; gap: 0.7rem; padding: 0.6rem 0.8rem; background: rgb(255 255 255 / 0.05); border: 1px solid rgb(230 207 156 / 0.2); border-radius: 8px; }
+.objective { flex-wrap: wrap; }
+.objective > .flex-1 { flex: 1 1 12rem; }
+.objective-mark { width: 1.4rem; text-align: center; font-weight: 700; color: var(--gold); }
+.objective.is-met .objective-mark { color: #7bd69c; }
+
+/* Notiziario fisso in basso */
+.ticker { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; background: var(--navy-900); border-top: 2px solid var(--gold); font-size: 0.9rem; }
+.ticker-label { flex: none; display: flex; align-items: center; padding: 0 0.9rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: var(--terracotta); }
+.ticker-window { flex: 1; min-width: 0; padding: 0.7rem 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; animation: ticker-scroll var(--ticker-duration, 60s) linear infinite; }
+.ticker-window:hover .ticker-track { animation-play-state: paused; }
+.ticker-list { flex: none; display: flex; margin: 0; padding: 0; list-style: none; }
+.ticker-list li { padding-right: 3rem; }
+.ticker-list li::before { content: '◆'; margin-right: 0.8rem; font-size: 0.6rem; vertical-align: middle; color: var(--gold); }
+@keyframes ticker-scroll { to { transform: translateX(-50%); } }
+
 @media (prefers-reduced-motion: reduce) {
-  .btn, .toast { transition: none; animation: none; }
+  .btn, .toast, .meter-fill { transition: none; animation: none; }
+  .ticker-track { animation: none; }
+  .ticker-window { overflow-x: auto; }
 }
