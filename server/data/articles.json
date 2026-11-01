@@ -1,0 +1,242 @@
+[
+  {
+    "id": "bonus-bollette",
+    "kind": "spesa",
+    "title": "Bonus bollette per le famiglie",
+    "text": "Contributo straordinario in bolletta per le famiglie a basso reddito.",
+    "tags": ["energia", "prezzi"],
+    "effects": { "approval": 8, "budget": -12, "europe": 2 }
+  },
+  {
+    "id": "tetto-prezzo-energia",
+    "kind": "spesa",
+    "title": "Tetto al prezzo dell'energia",
+    "text": "Un prezzo massimo per luce e gas, con lo Stato che copre la differenza ai fornitori.",
+    "tags": ["energia", "prezzi"],
+    "effects": { "approval": 7, "budget": -9, "europe": 6 }
+  },
+  {
+    "id": "credito-imposta-energivore",
+    "kind": "spesa",
+    "title": "Credito d'imposta per le imprese energivore",
+    "text": "Sconto fiscale alle fabbriche che consumano di più, per evitare chiusure e licenziamenti.",
+    "tags": ["energia", "imprese", "fiscale"],
+    "effects": { "approval": 4, "budget": -8, "europe": 3 }
+  },
+  {
+    "id": "assunzioni-sanita",
+    "kind": "spesa",
+    "title": "Piano di assunzioni in sanità",
+    "text": "Assunzione di medici e infermieri per ridurre le liste d'attesa.",
+    "tags": ["sanità", "personale"],
+    "effects": { "approval": 9, "budget": -14, "europe": 0 }
+  },
+  {
+    "id": "fondo-manutenzione",
+    "kind": "spesa",
+    "title": "Fondo per la manutenzione delle opere pubbliche",
+    "text": "Controlli e interventi su ponti, viadotti e gallerie, a partire dai più a rischio.",
+    "tags": ["infrastrutture", "sicurezza", "appalti"],
+    "effects": { "approval": 7, "budget": -12, "europe": -3 }
+  },
+  {
+    "id": "piano-idrico",
+    "kind": "spesa",
+    "title": "Piano nazionale per la rete idrica",
+    "text": "Rinnovo delle condutture per ridurre le perdite d'acqua e proteggere i raccolti.",
+    "tags": ["clima", "agricoltura", "infrastrutture"],
+    "effects": { "approval": 6, "budget": -11, "europe": -5 }
+  },
+  {
+    "id": "indennizzi-siccita",
+    "kind": "spesa",
+    "title": "Indennizzi per i danni della siccità",
+    "text": "Risarcimenti rapidi agli agricoltori che hanno perso il raccolto.",
+    "tags": ["agricoltura", "clima"],
+    "effects": { "approval": 6, "budget": -8, "europe": 2 }
+  },
+  {
+    "id": "incentivi-giovani",
+    "kind": "spesa",
+    "title": "Incentivi per le assunzioni stabili dei giovani",
+    "text": "Sgravi contributivi a chi assume under 30 con un contratto a tempo indeterminato.",
+    "tags": ["lavoro", "giovani", "imprese"],
+    "effects": { "approval": 7, "budget": -10, "europe": -2 }
+  },
+  {
+    "id": "salario-minimo",
+    "kind": "spesa",
+    "title": "Salario minimo legale",
+    "text": "Una paga oraria minima per legge, con compensi per i settori in difficoltà.",
+    "tags": ["lavoro", "salari"],
+    "effects": { "approval": 7, "budget": -6, "europe": -2 }
+  },
+  {
+    "id": "contratti-trasporti",
+    "kind": "spesa",
+    "title": "Rinnovo dei contratti dei trasporti",
+    "text": "Risorse per rinnovare i contratti di ferrovieri e personale aeroportuale.",
+    "tags": ["trasporti", "lavoro"],
+    "effects": { "approval": 6, "budget": -7, "europe": 0 }
+  },
+  {
+    "id": "potenziamento-ferrovie",
+    "kind": "spesa",
+    "title": "Potenziamento del servizio ferroviario",
+    "text": "Più treni regionali e puntualità garantita, con rimborsi automatici ai pendolari.",
+    "tags": ["trasporti", "turismo", "infrastrutture"],
+    "effects": { "approval": 6, "budget": -10, "europe": -3 }
+  },
+  {
+    "id": "carta-spesa",
+    "kind": "spesa",
+    "title": "Carta per la spesa dei redditi bassi",
+    "text": "Una carta prepagata per acquistare beni di prima necessità.",
+    "tags": ["prezzi", "salari"],
+    "effects": { "approval": 7, "budget": -9, "europe": 1 }
+  },
+  {
+    "id": "pensioni-minime",
+    "kind": "spesa",
+    "title": "Aumento delle pensioni minime",
+    "text": "Adeguamento degli assegni più bassi al costo della vita.",
+    "tags": ["pensioni"],
+    "effects": { "approval": 8, "budget": -11, "europe": 5 }
+  },
+  {
+    "id": "extraprofitti-energia",
+    "kind": "copertura",
+    "title": "Contributo sugli extraprofitti energetici",
+    "text": "Prelievo straordinario sui guadagni eccezionali delle aziende dell'energia.",
+    "tags": ["energia", "fiscale"],
+    "effects": { "approval": 2, "budget": 10, "europe": 2 }
+  },
+  {
+    "id": "iva-beni-lusso",
+    "kind": "copertura",
+    "title": "IVA maggiorata sui beni di lusso",
+    "text": "Aliquota più alta su yacht, gioielli e auto di fascia alta.",
+    "tags": ["fiscale", "prezzi"],
+    "effects": { "approval": -2, "budget": 7, "europe": -1 }
+  },
+  {
+    "id": "tagli-ministeri",
+    "kind": "copertura",
+    "title": "Tagli lineari alla spesa dei ministeri",
+    "text": "Riduzione uniforme dei budget dei ministeri, senza distinguere tra sprechi e servizi.",
+    "tags": ["fiscale"],
+    "effects": { "approval": -4, "budget": 9, "europe": -4 }
+  },
+  {
+    "id": "lotta-evasione",
+    "kind": "copertura",
+    "title": "Piano contro l'evasione fiscale",
+    "text": "Più controlli incrociati e incentivi ai pagamenti tracciabili.",
+    "tags": ["fiscale"],
+    "effects": { "approval": 1, "budget": 8, "europe": -3 }
+  },
+  {
+    "id": "patrimoniale",
+    "kind": "copertura",
+    "title": "Imposta sui grandi patrimoni",
+    "text": "Prelievo annuo sui patrimoni oltre una soglia molto alta.",
+    "tags": ["fiscale"],
+    "effects": { "approval": -3, "budget": 12, "europe": 2 }
+  },
+  {
+    "id": "accise-carburanti",
+    "kind": "copertura",
+    "title": "Aumento delle accise sui carburanti",
+    "text": "Un centesimo in più al litro per finanziare le nuove misure.",
+    "tags": ["fiscale", "trasporti"],
+    "effects": { "approval": -8, "budget": 10, "europe": -4 }
+  },
+  {
+    "id": "contributo-banche",
+    "kind": "copertura",
+    "title": "Contributo straordinario delle banche",
+    "text": "Prelievo una tantum sugli utili delle banche.",
+    "tags": ["fiscale"],
+    "effects": { "approval": 1, "budget": 9, "europe": 3 }
+  },
+  {
+    "id": "calcolo-contributivo",
+    "kind": "copertura",
+    "title": "Calcolo contributivo per tutti",
+    "text": "Le pensioni future legate ai contributi versati, senza eccezioni.",
+    "tags": ["pensioni", "fiscale"],
+    "effects": { "approval": -6, "budget": 10, "europe": -8 }
+  },
+  {
+    "id": "sanatoria-fiscale",
+    "kind": "favore",
+    "title": "Sanatoria per le piccole irregolarità fiscali",
+    "text": "Chi regolarizza entro l'anno paga una sanzione ridotta.",
+    "tags": ["fiscale", "imprese"],
+    "effects": { "approval": 6, "budget": 3, "europe": 7 }
+  },
+  {
+    "id": "rinvio-scadenze",
+    "kind": "favore",
+    "title": "Rinvio delle scadenze fiscali",
+    "text": "Più tempo alle imprese in difficoltà per pagare imposte e contributi.",
+    "tags": ["imprese", "fiscale"],
+    "effects": { "approval": 4, "budget": -3, "europe": 3 }
+  },
+  {
+    "id": "riforme-bruxelles",
+    "kind": "favore",
+    "title": "Impegno sulle riforme chieste da Bruxelles",
+    "text": "Il governo si impegna su un calendario di riforme concordato con l'Europa.",
+    "tags": ["fiscale"],
+    "effects": { "approval": -3, "budget": 2, "europe": -10 }
+  },
+  {
+    "id": "tavolo-sindacati",
+    "kind": "favore",
+    "title": "Tavolo permanente con i sindacati",
+    "text": "Un confronto stabile con le parti sociali prima di ogni riforma del lavoro.",
+    "tags": ["lavoro", "trasporti", "pensioni"],
+    "effects": { "approval": 3, "budget": -1, "europe": 0 }
+  },
+  {
+    "id": "semplificazione-imprese",
+    "kind": "favore",
+    "title": "Semplificazione burocratica per le imprese",
+    "text": "Meno moduli e un'unica ricevuta per aprire e gestire un'attività.",
+    "tags": ["imprese", "lavoro"],
+    "effects": { "approval": 2, "budget": -1, "europe": -1 }
+  },
+  {
+    "id": "commissario-opere",
+    "kind": "favore",
+    "title": "Commissario straordinario per le opere urgenti",
+    "text": "Poteri speciali per accelerare i cantieri più importanti.",
+    "tags": ["infrastrutture", "appalti"],
+    "effects": { "approval": 4, "budget": -2, "europe": 1 }
+  },
+  {
+    "id": "esenzione-ticket",
+    "kind": "favore",
+    "title": "Esenzione dai ticket per i redditi bassi",
+    "text": "Visite ed esami gratuiti per chi ha un reddito sotto la soglia.",
+    "tags": ["sanità"],
+    "effects": { "approval": 5, "budget": -5, "europe": 0 }
+  },
+  {
+    "id": "anticipo-pensionistico",
+    "kind": "favore",
+    "title": "Anticipo pensionistico flessibile",
+    "text": "Possibilità di andare in pensione prima, con un assegno ridotto.",
+    "tags": ["pensioni", "lavoro"],
+    "effects": { "approval": 7, "budget": -6, "europe": 6 }
+  },
+  {
+    "id": "risparmio-energetico",
+    "kind": "favore",
+    "title": "Campagna per il risparmio energetico",
+    "text": "Consigli e incentivi per consumare meno nelle ore di punta.",
+    "tags": ["energia", "clima"],
+    "effects": { "approval": 2, "budget": -1, "europe": -2 }
+  }
+]

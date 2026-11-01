@@ -97,7 +97,10 @@ describe('generazione della partita', () => {
   it('mostra ai giocatori solo ciò che serve, mai il seme', () => {
     const game = generateGame({ seed: 9 });
     const view = publicGame(game);
-    assert.deepEqual(Object.keys(view).sort(), ['crisis', 'kpis', 'objectives', 'round', 'ticker']);
+    assert.deepEqual(
+      Object.keys(view).sort(),
+      ['catalog', 'crisis', 'kpis', 'law', 'objectives', 'round', 'stage', 'ticker'],
+    );
     assert.deepEqual(Object.keys(view.crisis).sort(), ['briefing', 'id', 'kicker', 'title']);
     assert.ok(!JSON.stringify(view).includes('seed'));
     for (const headline of game.crisis.headlines) assert.ok(view.ticker.includes(headline));

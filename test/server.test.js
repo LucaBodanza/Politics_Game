@@ -106,6 +106,45 @@ describe('multiplayer via WebSocket', () => {
     }
   });
 
+  it('compone una legge in due e la presenta in aula', async () => {
+    const a = await connect();
+    const b = await connect();
+    try {
+      a.send('create', { name: 'Luca' });
+      await a.next('session');
+      const { code } = await a.next('room');
+      b.send('join', { code, name: 'Marta' });
+      await b.next('session');
+      await b.next('room');
+      for (const [client, role] of [[a, 'presidente_consiglio'], [b, 'ministro_economia']]) {
+        client.send('set_role', { role });
+        client.send('set_party', { party: 'alleanza_civica' });
+        client.send('ready', { ready: true });
+      }
+      await a.next((m) => m.t === 'room' && m.players.every((p) => p.ready));
+      a.send('start');
+      await b.next((m) => m.t === 'room' && m.phase === 'playing');
+
+      b.send('law_add', { articleId: 'tavolo-sindacati' });
+      const edited = await a.next((m) => m.t === 'room' && m.game?.law.articleIds.length === 1);
+      assert.deepEqual(edited.game.law.articleIds, ['tavolo-sindacati']);
+
+      a.send('law_agree', { agree: true });
+      b.send('law_agree', { agree: true });
+      const agreed = await a.next((m) => m.t === 'room' && m.game?.law.agreed.length === 2);
+      assert.equal(agreed.game.law.blocker, null);
+
+      b.send('law_submit');
+      assert.equal((await b.next('error')).code, 'NOT_HOST');
+      a.send('law_submit');
+      const done = await b.next((m) => m.t === 'room' && m.game?.stage === 'submitted');
+      assert.deepEqual(done.game.law.articleIds, ['tavolo-sindacati']);
+    } finally {
+      a.close();
+      b.close();
+    }
+  });
+
   it('restituisce errori leggibili e non cade con messaggi malformati', async () => {
     const a = await connect();
     try {

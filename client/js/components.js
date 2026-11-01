@@ -1,4 +1,4 @@
-import { PARTIES, ROLES } from '/shared/protocol.js';
+import { KPIS, PARTIES, ROLES } from '/shared/protocol.js';
 import { h, initials } from './ui.js';
 
 export const ROLE_LABEL = Object.fromEntries(ROLES.map((r) => [r.id, r.label]));
@@ -29,4 +29,19 @@ export function playerRow(player, room) {
         player.id === room.you ? h('span', { class: 'tag tag-you' }, 'Tu') : null),
       h('p', { class: 'm-0 text-sm muted truncate' }, details)),
     statusPill(player, room));
+}
+
+/** Numero con segno e vero simbolo del meno (−), per gli effetti degli articoli. */
+export const signed = (n) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0');
+
+/** Un indicatore "va meglio" salendo o scendendo (la pressione europea è meglio se scende). */
+export const isGood = (kpi, delta) => (kpi.better === 'up' ? delta > 0 : delta < 0);
+
+/** Pillole con l'effetto di un articolo sugli indicatori: solo quelli che cambiano. */
+export function effectChips(effect) {
+  return KPIS.filter((kpi) => effect[kpi.id] !== 0).map((kpi) => h(
+    'span',
+    { class: `chip ${isGood(kpi, effect[kpi.id]) ? 'chip-good' : 'chip-bad'}` },
+    `${kpi.short} ${signed(effect[kpi.id])}`,
+  ));
 }

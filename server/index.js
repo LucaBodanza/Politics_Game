@@ -120,6 +120,10 @@ function dispatch(registry, conn, msg) {
     case C2S.SET_PARTY: return registry.setParty(conn, msg.party);
     case C2S.READY: return registry.setReady(conn, msg.ready);
     case C2S.START: return registry.start(conn);
+    case C2S.LAW_ADD: return registry.lawAdd(conn, msg.articleId);
+    case C2S.LAW_REMOVE: return registry.lawRemove(conn, msg.articleId);
+    case C2S.LAW_AGREE: return registry.lawAgree(conn, msg.agree);
+    case C2S.LAW_SUBMIT: return registry.lawSubmit(conn);
     case C2S.LEAVE: return registry.leave(conn);
     default: throw new GameError(ERR.BAD_REQUEST, 'Messaggio non riconosciuto.');
   }

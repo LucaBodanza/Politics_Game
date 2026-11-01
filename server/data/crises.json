@@ -43,7 +43,8 @@
     "tags": ["lavoro", "giovani", "imprese"],
     "kpiStart": { "approval": 41, "budget": 50, "europe": 47 },
     "objectives": [
-      { "kpi": "approval", "op": "gte", "value": 52 },
+      { "kpi": "approval", "op": "gte", "value": 55 },
+      { "kpi": "budget", "op": "gte", "value": 38 },
       { "kpi": "europe", "op": "lte", "value": 55 }
     ],
     "headlines": [
@@ -79,8 +80,8 @@
     "tags": ["trasporti", "lavoro", "turismo"],
     "kpiStart": { "approval": 40, "budget": 52, "europe": 33 },
     "objectives": [
-      { "kpi": "approval", "op": "gte", "value": 50 },
-      { "kpi": "budget", "op": "gte", "value": 40 }
+      { "kpi": "approval", "op": "gte", "value": 54 },
+      { "kpi": "budget", "op": "gte", "value": 42 }
     ],
     "headlines": [
       "TG Capitale: stazioni deserte, migliaia di pendolari bloccati da giorni",
@@ -115,8 +116,8 @@
     "tags": ["clima", "agricoltura", "infrastrutture"],
     "kpiStart": { "approval": 42, "budget": 50, "europe": 52 },
     "objectives": [
-      { "kpi": "approval", "op": "gte", "value": 50 },
-      { "kpi": "europe", "op": "lte", "value": 45 }
+      { "kpi": "approval", "op": "gte", "value": 53 },
+      { "kpi": "europe", "op": "lte", "value": 42 }
     ],
     "headlines": [
       "TG Capitale: i fiumi ai minimi storici, razionamento dell'acqua in decine di comuni",
@@ -133,7 +134,8 @@
     "tags": ["pensioni", "fiscale", "giovani"],
     "kpiStart": { "approval": 44, "budget": 40, "europe": 62 },
     "objectives": [
-      { "kpi": "budget", "op": "gte", "value": 45 },
+      { "kpi": "approval", "op": "gte", "value": 48 },
+      { "kpi": "budget", "op": "gte", "value": 46 },
       { "kpi": "europe", "op": "lte", "value": 50 }
     ],
     "headlines": [

@@ -3,6 +3,8 @@ import {
   ERR, MAX_PLAYERS, MIN_PLAYERS, NAME_MAX, PARTIES, PHASES, ROLES, S2C,
 } from '../shared/protocol.js';
 import { generateCode, normalizeCode } from './codes.js';
+import { GameError } from './errors.js';
+import { addArticle, removeArticle, setAgreement, submitLaw } from './game/law.js';
 import { generateGame, publicGame } from './game/state.js';
 
 const ROLE_IDS = new Set(ROLES.map((r) => r.id));
@@ -10,12 +12,7 @@ const PARTY_IDS = new Set(PARTIES.map((p) => p.id));
 // Caratteri di controllo e invisibili che permetterebbero nomi ingannevoli.
 const HIDDEN_CHARS = /[\u0000-\u001f\u007f​-‏‪-‮⁦-⁩]/g;
 
-export class GameError extends Error {
-  constructor(code, message) {
-    super(message);
-    this.code = code;
-  }
-}
+export { GameError };
 
 export function cleanName(raw) {
   const name = typeof raw === 'string'
@@ -170,6 +167,34 @@ export class RoomRegistry {
     this.#broadcast(room);
   }
 
+  // Il testo della legge è condiviso: tutti i giocatori possono modificarlo, e il server fa da arbitro.
+  lawAdd(conn, articleId) {
+    const { room } = this.#context(conn, PHASES.PLAYING);
+    addArticle(room.game, articleId);
+    this.#broadcast(room);
+  }
+
+  lawRemove(conn, articleId) {
+    const { room } = this.#context(conn, PHASES.PLAYING);
+    removeArticle(room.game, articleId);
+    this.#broadcast(room);
+  }
+
+  lawAgree(conn, agree) {
+    const { player, room } = this.#context(conn, PHASES.PLAYING);
+    setAgreement(room.game, player.id, agree);
+    this.#broadcast(room);
+  }
+
+  lawSubmit(conn) {
+    const { player, room } = this.#context(conn, PHASES.PLAYING);
+    if (room.hostId !== player.id) {
+      throw new GameError(ERR.NOT_HOST, 'Solo chi ha creato la stanza può presentare la legge in aula.');
+    }
+    submitLaw(room.game, this.#connectedIds(room));
+    this.#broadcast(room);
+  }
+
   leave(conn) {
     const { player } = this.#context(conn);
     conn.send({ t: S2C.LEFT });
@@ -221,6 +246,7 @@ export class RoomRegistry {
     clearTimeout(player.graceTimer);
     this.#sessions.delete(player.token);
     room.players.delete(player.id);
+    if (room.game) room.game.law.agreed = room.game.law.agreed.filter((id) => id !== player.id);
     if (room.players.size === 0) {
       this.#destroy(room);
       return;
@@ -247,7 +273,12 @@ export class RoomRegistry {
     this.#rooms.delete(room.code);
   }
 
+  #connectedIds(room) {
+    return [...room.players.values()].filter((p) => p.conn).map((p) => p.id);
+  }
+
   #snapshot(room, viewer) {
+    const connectedIds = this.#connectedIds(room);
     return {
       t: S2C.ROOM,
       code: room.code,
@@ -256,7 +287,7 @@ export class RoomRegistry {
       you: viewer.id,
       minPlayers: MIN_PLAYERS,
       maxPlayers: MAX_PLAYERS,
-      game: room.game ? publicGame(room.game) : null,
+      game: room.game ? publicGame(room.game, connectedIds) : null,
       players: [...room.players.values()].map((p) => ({
         id: p.id,
         name: p.name,
