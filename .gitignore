@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+*.log
+.claude/settings.local.json
+
+# Il disco QuartoDisco è exFAT: macOS crea un gemello ._nome per ogni file.
+._*
